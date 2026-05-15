@@ -1,0 +1,24 @@
+[
+[
+
+{"Enunciado" : "Como crio uma função ? ", 
+"a" : "func Ola(pedro) ",
+"b" : "def Ola(pedro) ",
+"c" : "definir Ola(pedro) ",
+"d" : "funcao Ola(pedro)",
+"correta" : "b"},
+{"Enunciado" : "Como crio um dict ? ", 
+"a" : "dicio = {} ",
+"b" : "def dict() ",
+"c" : "creat dict ",
+"d" : "dicio = []",
+"correta" : "a"}
+
+]
+,
+[]
+
+
+
+    
+]

@@ -1,0 +1,40 @@
+[
+
+{"historia" : "texto 0",
+"posicao" : 0 ,
+"proximo" : 1,
+"tipo" : "texto"} ,
+
+{"historia" : "texto 1",
+"posicao" : 1 ,
+"proximo" : 2,
+"tipo" : "texto"},
+
+{"historia" : "texto 2",
+"posicao" : 2 ,
+"proximo" : 3,
+"tipo" : "texto"},
+
+{"historia" : "texto 3",
+"posicao" : 3 ,
+"proximo" : 4,
+"tipo" : "texto"},
+
+{ "historia" : "texto 4",
+"posicao" : 4 ,
+"proximo" : 5,
+"tipo" : "combate",
+"materia" :"APC",
+
+"inimigo" : {"nome" : "Fabrilton" ,
+    "vida" : 50 ,
+    "materia" : "APC",
+    "inventario" : ["cura", "espada"]} },
+
+
+{"historia" : "texto 5",
+"posicao" : 5 ,
+"proximo" : 6,
+"tipo" : "texto"}
+
+]
