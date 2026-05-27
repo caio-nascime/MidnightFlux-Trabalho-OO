@@ -1,4 +1,7 @@
 from models.player import Player
+import time
+import os
+
 
 class ViewMenu:
 
@@ -6,23 +9,96 @@ class ViewMenu:
 
         self.player = None 
 
+        self.midnight = [
+    "███╗   ███╗██╗██████╗ ███╗  ██╗██╗ ██████╗ ██╗  ██╗████████╗",
+    "████╗ ████║██║██╔══██╗████╗ ██║██║██╔════╝ ██║  ██║╚══██╔══╝",
+    "██╔████╔██║██║██║  ██║██╔██╗██║██║██║  ███╗███████║   ██║   ",
+    "██║╚██╔╝██║██║██║  ██║██║╚████║██║██║   ██║██╔══██║   ██║   ",
+    "██║ ╚═╝ ██║██║██████╔╝██║ ╚███║██║╚██████╔╝██║  ██║   ██║   ",
+    "╚═╝     ╚═╝╚═╝╚═════╝ ╚═╝  ╚══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ",
+]
+ 
+        self.flux = [
+    "███████╗██╗     ██╗   ██╗██╗  ██╗",
+    "██╔════╝██║     ██║   ██║╚██╗██╔╝",
+    "█████╗  ██║     ██║   ██║ ╚███╔╝ ",
+    "██╔══╝  ██║     ██║   ██║ ██╔██╗ ",
+    "██║     ███████╗╚██████╔╝██╔╝ ██╗",
+    "╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝",
+]
+
 
     def criar_player(self):
+        print()
 
-        print("Bem vindo ao jogo BLA BLA BLA")
-        nome = input("Como podemos te chamar, calouro? : ")
+        print("                       BEM VINDO AO")
+        print()
+        for linha in self.midnight:
+            print(linha)
+
+        for linha in self.flux:
+            print(linha)
+
+        print()
+
+        time.sleep(1.5)
+
+        nome = input("       COMO PODEMOS TE CHAMAR CALOURO? : ")
+
+        print()
 
         return nome
+    
     
 
 
     def usuario_criado(self, nome):
 
-        print(f"Agora sim, {nome}! Agora você faz parte da FCTE, está devidamente matriculado")
+        print(f"\nAgora sim, {nome}! Agora você faz parte da FCTE, está devidamente matriculado")
     
 
     
 
     def bem_vindo_novamente(self, player_obj):
 
-        print(f"Bem vindo de volta {player_obj.nome}\nVocê está atualmente com {player_obj.vida}\nBLA BLA BLA")
+
+        print()
+
+        print(f"\n                 BEM VINDO DE VOLTA AO ")
+
+        print()
+
+
+        for linha in self.midnight:
+            print(linha)
+
+        for linha in self.flux:
+            print(linha)
+
+        time.sleep(1)
+
+        print()
+
+        print(f"{player_obj.nome}, você está atualmente com {player_obj.vida} de vida.\n  TOME CUIDADO, A FCTE PRECISA DE VOCÊ\n")
+
+        time.sleep(2.5)
+
+        print("LOADING...\n\n")
+        
+
+        time.sleep(2)
+
+        print("CARREGANDO PACOTES...")
+
+        time.sleep(2)
+
+        os.system("cls" if os.name == "nt" else "clear")
+
+    
+
+
+    def despedida(self, Player):
+
+        print(f"Até logo {Player.nome}! Descansar que o homem não é de ferro !")
+        print(f"Atualmente você está com {Player.vida} de vida e {Player.vida}, se recupere para amnhanhã, não vá para o HH\n\n")
+

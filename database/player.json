@@ -1,7 +1,8 @@
 {
-    "nome": "None",
+    "nome": "caio",
     "vida": 50,
     "ira": 5,
+    "dano": 20,
     "inventario": [],
-    "pos_historia": 0
+    "pos_historia": 4
 }

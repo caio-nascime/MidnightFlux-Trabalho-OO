@@ -52,6 +52,26 @@ class RepoHistoria:
 
 
 
+    def get_falas_acerto(self, pos_json):
+
+
+        return self.__historia_list[pos_json]["inimigo"]["falas_acerto"]
+    
+
+
+
+    def get_falas_erro(self, pos_json):
+
+
+        return self.__historia_list[pos_json]["inimigo"]["falas_erro"]
+    
+
+
+
+    
+
+
+
 
 if __name__ == "__main__" :
 

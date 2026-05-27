@@ -7,6 +7,8 @@ from repositories.repo_historia import RepoHistoria
 from views.view_menu import ViewMenu
 from views.view_historia import ViewHistoria
 
+from controllers.combate import Combate
+
 
 
 
@@ -25,18 +27,18 @@ class Sistema():
     
     def iniciar(self):
 
-        player = self.carregar_player()
+        player = self.__carregar_player()
 
         self.player = player
 
-        self.loop_principal()
+        self.__loop_principal()
 
     
 
 
 
 
-    def carregar_player(self, flag = True):
+    def __carregar_player(self, flag = True):
 
         self.service_user = ServiceUser(RepoPlayer('database/player.json'))
         nome_player = self.service_user.buscar_nome()
@@ -47,7 +49,7 @@ class Sistema():
             nome = ViewMenu().criar_player()
             self.service_user.criar_player(nome)
 
-            return self.carregar_player(False)
+            return self.__carregar_player(False)
 
         else:
 
@@ -66,7 +68,7 @@ class Sistema():
 
 
 
-    def loop_principal(self) :
+    def __loop_principal(self) :
          
         
 
@@ -92,15 +94,31 @@ class Sistema():
                 
 
                 elif continuar.lower() == "q" or continuar.lower() == "quit" or continuar.lower() == "sair":
-                    break                         # FAZER A LÓGICA CASO O USUÁRIO QUEIRA SAIR 
+
+                    ViewMenu().despedida(self.player)
+                    
+                    return                  # FAZER A LÓGICA CASO O USUÁRIO QUEIRA SAIR 
                 
 
                 else:
-                    ... #CRIAR LÓGICA
+                    
+                    print("Entrada invalida... ")  # Melhorar essa lógica
+
+                    continuar = print_parte.print_historia()
 
 
 
-            
+            elif tipo == "combate" :
+
+                print("Estou no combate")
+
+                inimigo = service_historia.carregar_inimigo(parte_historia_dict)
+
+                combate = Combate(self.player, inimigo)
+
+                turno = combate.turno()
+
+                break
 
 
 
@@ -110,3 +128,5 @@ class Sistema():
 if __name__ == "__main__" :
 
     Sistema().iniciar()
+
+

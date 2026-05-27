@@ -1,16 +1,16 @@
 [
 
-{"historia" : "texto 0",
+{"historia" : "\n\n=============== 01 : 47 DA MANHÃ ============= \n\nA chuva caía fraca sobre o campus Gama.\nO relógio marcava 01:47 da manhã, mas a fila em frente ao prédio da coordenação já dobrava o corredor principal.\nAlguns alunos dormiam sentados no chão frio;\noutros seguravam notebook, café ou fichas rabiscadas com grades horárias impossíveis.\n\n",
 "posicao" : 0 ,
 "proximo" : 1,
 "tipo" : "texto"} ,
 
-{"historia" : "texto 1",
+{"historia" : "Você apertava o casaco tentando ignorar o vento gelado.\nNa sua mão estava um papel amassado:\n\n     [ TED/PED -> Última esperança. ]\n\nA extraordinária havia começado.\n\nMais uma vez...\n\n",
 "posicao" : 1 ,
 "proximo" : 2,
 "tipo" : "texto"},
 
-{"historia" : "texto 2",
+{"historia" : "Ao seu lado, um garoto andava de um lado para o outro claramente surtado.\nOlheiras profundas, cabelo bagunçado, voz trêmula...\nEle olhava para a porta da coordenação como se sua vida dependesse daquilo.\n\n",
 "posicao" : 2 ,
 "proximo" : 3,
 "tipo" : "texto"},
@@ -24,12 +24,16 @@
 "posicao" : 4 ,
 "proximo" : 5,
 "tipo" : "combate",
-"materia" :"APC",
+"disciplina" :"APC",
 
 "inimigo" : {"nome" : "Fabrilton" ,
     "vida" : 50 ,
+    "dano" : 20,
     "materia" : "APC",
-    "inventario" : ["cura", "espada"]} },
+    "inventario" : ["cura", "espada"],
+    "dificuldade" : 2,
+    "falas_acerto" : ["Acertou", "Pelo jeito você não é tão ruim", "bla bla bla acerto"],
+    "falas_erro" : ["Errou", "Pesimo", "Fraco"]} },
 
 
 {"historia" : "texto 5",
