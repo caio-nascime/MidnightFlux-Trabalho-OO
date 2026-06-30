@@ -49,7 +49,16 @@ class ServiceUser():
         player = self.carregar_player()
 
         return player
-            
+    
+
+
+
+    def retornar_pos_json(self, pos_anterior):
+
+        self.RepoPlayer.atualizar_pos_json(pos_anterior)
+        player = self.carregar_player()
+
+        return player
 
         
 

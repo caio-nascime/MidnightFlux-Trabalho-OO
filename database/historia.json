@@ -22,6 +22,7 @@
 
 { "historia" : "texto 4",
 "posicao" : 4 ,
+"anterior" : 3,
 "proximo" : 5,
 "tipo" : "combate",
 "disciplina" :"APC",

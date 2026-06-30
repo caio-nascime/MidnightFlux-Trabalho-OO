@@ -4,6 +4,8 @@ from models.player import Player
 from models.inimigo import Inimigo
 
 from views.view_pergunta import ViewPergunta
+from views.view_batalha import ViewBatalha
+
 
 class MotorCombate:
 
@@ -39,7 +41,7 @@ class MotorCombate:
 
         while True:
 
-            resposta = view_pergunta.print_pergunta()
+            resposta = view_pergunta.print_pergunta("player")
 
             if resposta in ["a", "b", "c", "d"]:
 
@@ -54,6 +56,7 @@ class MotorCombate:
         player  = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
         inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
         
 
         if resposta == pergunta_dict["correta"]:
@@ -67,6 +70,7 @@ class MotorCombate:
             new_vida = inimigo.receber_dano(dano)
 
             self.inimigo_dict["vida"] = new_vida
+            
 
             return [self.inimigo_dict , 1]  #soma mais um no combo
 
@@ -80,6 +84,8 @@ class MotorCombate:
             new_vida = inimigo.receber_dano(dano)
 
             self.inimigo_dict["vida"] = new_vida
+
+            view_batalha.ataque_inimigo_erro()
 
             return [self.inimigo_dict , 0] # Zera o combo
 
@@ -95,7 +101,7 @@ class MotorCombate:
 
         while True:
 
-            resposta = view_pergunta.print_pergunta()
+            resposta = view_pergunta.print_pergunta("inimigo")
 
             if resposta in ["a", "b", "c", "d"]:
 
@@ -110,7 +116,8 @@ class MotorCombate:
         player = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
         inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
-        
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+
 
         if resposta == pergunta_dict["correta"]:
     
@@ -137,5 +144,9 @@ class MotorCombate:
             new_vida = player.receber_dano(dano)
 
             self.jogador_dict["vida"] = new_vida
+
+            
+
+
 
             return [self.jogador_dict , 0] # Zera o combo

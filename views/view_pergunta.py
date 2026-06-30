@@ -1,3 +1,4 @@
+import os
 
 class ViewPergunta:
 
@@ -11,8 +12,13 @@ class ViewPergunta:
     def _linha(self, tamanho=60, caractere="-"):
 
         return caractere * tamanho
+    
 
-    def print_pergunta(self):
+
+
+    def print_pergunta(self, player_inimigo):
+
+        os.system("cls" if os.name == "nt" else "clear")
 
         pergunta = self.pergunta_dict
 
@@ -26,7 +32,13 @@ class ViewPergunta:
 
         print()
         print(self._linha())
-        print("|" + " QUESTÃO ".center(58) + "|")
+        if player_inimigo == "player":
+
+            print("|" + " VÁ PARA CIMA, ATAQUE !! ".center(58) + "|")
+
+        else :
+            print("|" + " ACERTE PARA SE DEFENDER !! ".center(58) + "|")
+
         print(self._linha())
         print()
         print(f"Enunciado: {enunciado.strip()}")
@@ -44,6 +56,8 @@ class ViewPergunta:
         print()
 
         return resposta
+
+
 
 
 if __name__ == "__main__":

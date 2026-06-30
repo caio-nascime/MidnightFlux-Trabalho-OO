@@ -1,7 +1,9 @@
 from service.service_perguntas import ServicePerguntas
 from service.service_motor_combate import MotorCombate
+from service.service_user import ServiceUser
 
 from repositories.repo_perguntas import RepoPerguntas
+from repositories.repo_player import RepoPlayer
 
 from views.view_batalha import ViewBatalha
 
@@ -67,7 +69,9 @@ class Combate:
 
 
 
-    def turno(self):
+    def turno(self, dict_historia):
+
+        service_user = ServiceUser(RepoPlayer('database/player.json'))
          
         round = 0 
         combo = 0 
@@ -107,7 +111,7 @@ class Combate:
                 
                 list_result_player = motor_combate.turno_inimigo(combo)
 
-                self.player_copy = list_result_inimigo[0]
+                self.jogador_copy = list_result_player[0]
 
                 if list_result_player[1] == 1:
 
@@ -129,14 +133,16 @@ class Combate:
                 if list_fim[1] == "ganhou":
 
                     print("parabens vc ganhou")
-                    break #retirar dps
-                    #Vou para o proximo na historia
+                    
+                    player = service_user.atualizar_pos_json(dict_historia["proximo"])
+                    return player
 
                 else :
 
                     print("LOSSEEEERRRR")
                     #Volto para o texto anterior
-                    break #retirar dps
+                    player = service_user.retornar_pos_json(dict_historia["anterior"])
+                    return player
 
             else :
 

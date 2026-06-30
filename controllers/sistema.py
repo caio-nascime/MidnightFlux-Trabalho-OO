@@ -116,9 +116,10 @@ class Sistema():
 
                 combate = Combate(self.player, inimigo)
 
-                turno = combate.turno()
+                turno = combate.turno(parte_historia_dict)
 
                 break
+
 
 
 

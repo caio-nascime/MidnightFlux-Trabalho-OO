@@ -29,7 +29,7 @@ class Player:
 
     def atacar(self, acerto):
 
-        print("estou atacando")
+        
 
         if acerto :
 
@@ -48,16 +48,12 @@ class Player:
 
             dano = self.dano * self.ira * fator_random
 
-            print(f"Estou dando {dano} de dano")
-
             return dano
             
 
 
 
-    def receber_dano(self, dano):
-
-        print(f"estou recebendo {dano} de dano")
+    def receber_dano(self, dano): 
 
         vida = self.vida - dano
 
