@@ -136,7 +136,7 @@ class Combate:
                     
                     player = service_user.atualizar_pos_json(dict_historia["proximo"])
                     return player
-
+    
                 else :
 
                     print("LOSSEEEERRRR")

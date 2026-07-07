@@ -81,4 +81,84 @@ class ViewBatalha:
 
 
 
-    
+    def ataque_inimigo_acerto(self):
+        """O jogador acertou a pergunta na defesa e recebeu menos dano do inimigo (Defesa com Sucesso)"""
+        nome_jogador = self.dict_player["nome"]
+        vida_jogador = self.dict_player["vida"]
+        nome_inimigo = self.dict_inimigo["nome"]
+        vida_inimigo = self.dict_inimigo["vida"]
+
+        print("=" * 60)
+        print("          VOCÊ ACERTOU! * DEFESA BEM SUCEDIDA *")
+        print("=" * 60)
+        print("\n")
+
+        # Representação gráfica: Jogador ergue a espada/escudo e o inimigo errou o golpe principal
+        print("          O   |        __O=X ")
+        print("        \\/|\\ /          |   \")")
+        print("         / \\           / \\  \")")
+
+        print("\n")
+        print("-" * 60)
+        status_jogador = f"{nome_jogador}: {vida_jogador}HP"
+        status_limigo = f"{nome_inimigo}: {vida_inimigo}HP"
+        print(f" {status_jogador:<35} {status_limigo}")
+        print("-" * 60)
+        time.sleep(1.5)
+
+
+
+
+    def ataque_jogador_acerto(self):
+        """O jogador acertou a pergunta no ataque e causou mais dano (Golpe Crítico)"""
+        nome_jogador = self.dict_player["nome"]
+        vida_jogador = self.dict_player["vida"]
+        nome_inimigo = self.dict_inimigo["nome"]
+        vida_inimigo = self.dict_inimigo["vida"]
+
+        print("=" * 60)
+        print("          VOCÊ ACERTOU! * GOLPE CRÍTICO CONECTADO! *")
+        print("=" * 60)
+        print("\n")
+
+        # Representação gráfica: Jogador avança com a espada e acerta o inimigo (*CRASH!*)
+        print("          O |===> *CRASH!* __O=X ")
+        print("         /|\\       / //     _/    \")")
+        print("         / \\       / \\      \\/    \")")
+
+        print("\n")
+        print("-" * 60)
+        status_jogador = f"{nome_jogador}: {vida_jogador}HP"
+        status_limigo = f"{nome_inimigo}: {vida_inimigo}HP"
+        print(f" {status_jogador:<35} {status_limigo}")
+        print("-" * 60)
+        time.sleep(1.5)
+
+
+
+
+
+    def ataque_jogador_erro(self):
+        """O jogador errou a pergunta no ataque e causou menos dano (Golpe Fraco/Defendido)"""
+        nome_jogador = self.dict_player["nome"]
+        vida_jogador = self.dict_player["vida"]
+        nome_inimigo = self.dict_inimigo["nome"]
+        vida_inimigo = self.dict_inimigo["vida"]
+
+        print("=" * 60)
+        print("          VOCÊ ERROU! * O INIMIGO BLOQUEOU PARCIALMENTE *")
+        print("=" * 60)
+        print("\n")
+
+        # Representação gráfica: A espada bate mas o inimigo se defende com o braço/arma
+        print("          O  |==>X        __O=X ")
+        print("         /|\\   /            |   \")")
+        print("         / \\               / \\  \")")
+
+        print("\n")
+        print("-" * 60)
+        status_jogador = f"{nome_jogador}: {vida_jogador}HP"
+        status_limigo = f"{nome_inimigo}: {vida_inimigo}HP"
+        print(f" {status_jogador:<35} {status_limigo}")
+        print("-" * 60)
+        time.sleep(1.5)

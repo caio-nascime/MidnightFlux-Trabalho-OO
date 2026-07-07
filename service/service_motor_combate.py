@@ -71,6 +71,7 @@ class MotorCombate:
 
             self.inimigo_dict["vida"] = new_vida
             
+            view_batalha.ataque_jogador_acerto()
 
             return [self.inimigo_dict , 1]  #soma mais um no combo
 
@@ -85,7 +86,7 @@ class MotorCombate:
 
             self.inimigo_dict["vida"] = new_vida
 
-            view_batalha.ataque_inimigo_erro()
+            view_batalha.ataque_jogador_erro()
 
             return [self.inimigo_dict , 0] # Zera o combo
 
@@ -131,6 +132,8 @@ class MotorCombate:
 
             self.jogador_dict["vida"] = new_vida
 
+            view_batalha.ataque_inimigo_acerto()
+
             return [self.jogador_dict , 1]  #soma mais um no combo
 
 
@@ -146,7 +149,7 @@ class MotorCombate:
             self.jogador_dict["vida"] = new_vida
 
             
-
+            view_batalha.ataque_inimigo_erro()
 
 
             return [self.jogador_dict , 0] # Zera o combo

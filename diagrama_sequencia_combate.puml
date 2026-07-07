@@ -1,0 +1,85 @@
+@startuml
+hide footbox
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+
+actor Jogador
+participant Sistema
+participant Combate
+participant MotorCombate
+participant ViewPergunta
+participant ViewBatalha
+participant Player
+participant Inimigo
+
+Jogador -> Sistema : iniciar jogo
+activate Sistema
+
+Sistema -> Sistema : carregar personagem
+alt personagem novo
+  Sistema -> Jogador : pedir nome
+else personagem existente
+  Sistema -> Jogador : mostrar boas-vindas
+end
+
+Sistema -> Sistema : ler historia
+alt trecho de texto
+  Sistema -> Jogador : mostrar historia
+  Sistema -> Sistema : avançar trecho
+else trecho de combate
+  Sistema -> Combate : iniciar batalha
+  activate Combate
+  Combate -> ViewBatalha : mostrar batalha
+  activate ViewBatalha
+  deactivate ViewBatalha
+
+  loop enquanto combate ativo
+    Combate -> MotorCombate : carregar pergunta
+    activate MotorCombate
+    MotorCombate -> ViewPergunta : exibir pergunta
+    activate ViewPergunta
+    ViewPergunta -> Jogador : responder pergunta
+    deactivate ViewPergunta
+
+    alt resposta correta
+      MotorCombate -> Player : atacar
+      activate Player
+      Player --> MotorCombate : dano
+      deactivate Player
+      MotorCombate -> Inimigo : receber dano
+      activate Inimigo
+      Inimigo --> MotorCombate : vida atualizada
+      deactivate Inimigo
+      MotorCombate -> ViewBatalha : mostrar erro
+    else resposta errada
+      MotorCombate -> Player : atacar
+      activate Player
+      Player --> MotorCombate : dano
+      deactivate Player
+      MotorCombate -> Inimigo : receber dano
+      activate Inimigo
+      Inimigo --> MotorCombate : vida atualizada
+      deactivate Inimigo
+      MotorCombatE -> ViewBatalha : mostrar erro
+    deactivate MotorCombate
+    end
+
+    Combate -> Combate : verificar fim
+    alt vitória
+      Combate -> Sistema : atualizar progresso
+      
+    else derrota
+      Combate -> Sistema : voltar progresso
+     
+    end
+    deactivate MotorCombate
+  end
+
+      deactivate MotorCombate
+
+  deactivate Combate
+end
+
+deactivate Sistema
+
+@enduml

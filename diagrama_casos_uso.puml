@@ -1,0 +1,63 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor Jogador
+actor "Sistema de Arquivos JSON" as Arquivos
+
+rectangle "RPG OO 1" {
+  usecase "Jogar partida" as UC_Jogar
+  usecase "Carregar personagem" as UC_CarregarPersonagem
+  usecase "Criar personagem" as UC_CriarPersonagem
+  usecase "Ler história" as UC_LerHistoria
+  usecase "Avançar para próximo trecho" as UC_AvancarHistoria
+  usecase "Encerrar jogo" as UC_EncerrarJogo
+  usecase "Iniciar combate" as UC_IniciarCombate
+  usecase "Carregar inimigo" as UC_CarregarInimigo
+  usecase "Executar turno de ataque" as UC_TurnoAtaque
+  usecase "Executar turno de defesa" as UC_TurnoDefesa
+  usecase "Responder pergunta de combate" as UC_ResponderPergunta
+  usecase "Atualizar progresso" as UC_AtualizarProgresso
+  usecase "Retornar ao trecho anterior" as UC_RetornarAnterior
+  usecase "Vencer combate" as UC_VencerCombate
+  usecase "Perder combate" as UC_PerderCombate
+}
+
+Jogador --> UC_Jogar
+Jogador --> UC_CriarPersonagem
+Jogador --> UC_LerHistoria
+Jogador --> UC_AvancarHistoria
+Jogador --> UC_EncerrarJogo
+Jogador --> UC_IniciarCombate
+Jogador --> UC_TurnoAtaque
+Jogador --> UC_TurnoDefesa
+Jogador --> UC_ResponderPergunta
+
+Arquivos --> UC_CarregarPersonagem
+Arquivos --> UC_AtualizarProgresso
+
+UC_Jogar ..> UC_CarregarPersonagem : <<include>>
+UC_Jogar ..> UC_LerHistoria : <<include>>
+UC_Jogar ..> UC_IniciarCombate : <<include>>
+UC_CriarPersonagem ..> UC_Jogar : <<extend>>
+UC_EncerrarJogo ..> UC_Jogar : <<extend>>
+
+UC_LerHistoria ..> UC_AvancarHistoria : <<extend>>
+UC_LerHistoria ..> UC_EncerrarJogo : <<extend>>
+
+UC_IniciarCombate ..> UC_CarregarInimigo : <<include>>
+UC_IniciarCombate ..> UC_TurnoAtaque : <<include>>
+UC_IniciarCombate ..> UC_TurnoDefesa : <<include>>
+UC_IniciarCombate ..> UC_VencerCombate : <<extend>>
+UC_IniciarCombate ..> UC_PerderCombate : <<extend>>
+
+UC_TurnoAtaque ..> UC_ResponderPergunta : <<include>>
+UC_TurnoDefesa ..> UC_ResponderPergunta : <<include>>
+
+UC_AvancarHistoria ..> UC_AtualizarProgresso : <<include>>
+UC_VencerCombate ..> UC_AtualizarProgresso : <<include>>
+UC_PerderCombate ..> UC_RetornarAnterior : <<include>>
+UC_RetornarAnterior ..> UC_AtualizarProgresso : <<include>>
+
+@enduml

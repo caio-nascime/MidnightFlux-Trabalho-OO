@@ -55,6 +55,10 @@ class ViewMenu:
     def usuario_criado(self, nome):
 
         print(f"\nAgora sim, {nome}! Agora você faz parte da FCTE, está devidamente matriculado")
+
+        time.sleep(1.5)
+
+        os.system("cls" if os.name == "nt" else "clear")
     
 
     

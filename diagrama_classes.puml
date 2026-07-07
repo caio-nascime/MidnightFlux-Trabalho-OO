@@ -1,0 +1,198 @@
+@startuml
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Sistema {
+  -player
+  -inimigo
+  -perguntas
+  -proresso
+  -service_user
+  +iniciar()
+  -__carregar_player(flag=True)
+  -__loop_principal()
+}
+
+class Combate {
+  -Player
+  -Inimigo
+  -lista_perguntas
+  -jogador_copy
+  -inimigo_copy
+  +__carregar_perguntas(disciplina)
+  +verificar_fim()
+  +turno(dict_historia)
+}
+
+class MotorCombate {
+  -jogador_dict
+  -inimigo_dict
+  -perguntas_list
+  -round
+  +sortear_pergunta()
+  +turno_player(combo)
+  +turno_inimigo(combo)
+}
+
+class ServiceUser {
+  -RepoPlayer
+  +buscar_nome()
+  +carregar_player()
+  +criar_player(nome)
+  +atualizar_pos_json(prox_pos)
+  +retornar_pos_json(pos_anterior)
+}
+
+class ServiceHistoria {
+  -RepoHistoria
+  -Player_obj
+  -pos_json
+  +verificar_tipo()
+  +carregar_parte()
+  +carregar_inimigo(dict_parte)
+}
+
+class ServicePerguntas {
+  -RepoPerguntas
+  +carregar_perguntas(dificuldade)
+}
+
+class Player {
+  -__nome
+  -vida
+  -dano
+  -ira
+  -inventario
+  -__pos_json
+  +nome
+  +pos_json
+  +atacar(acerto)
+  +receber_dano(dano)
+}
+
+class Inimigo {
+  +nome
+  +vida
+  +dano
+  +inventario
+  +dificuldade
+  +disciplina
+  +atacar(acerto)
+  +receber_dano(dano)
+}
+
+
+interface Itens {
+  +usar_item()
+}
+
+class Crua {
+  +nome
+  +observacao
+  +usar_item()
+}
+
+class Buffer {
+  +nome
+  +observacao
+  +usar_item()
+}
+
+
+class RepoPlayer {
+  -__path
+  -__infos_player
+  +get_infos_player()
+  +criar_player(nome)
+  +atualizar_pos_json(prox_pos)
+  -__read_json()
+}
+
+class RepoHistoria {
+  -__path
+  -__historia_list
+  +read_json()
+  +get_historia_list()
+  +get_historia_parte(pos_json)
+  +get_tipo(pos_json)
+  +get_falas_acerto(pos_json)
+  +get_falas_erro(pos_json)
+}
+
+class RepoPerguntas {
+  -__path
+  -__perguntas_brutas_list
+  +get_perguntas_brutas()
+  -__read_json()
+}
+
+class ViewMenu {
+  -player
+  -midnight
+  -flux
+  +criar_player()
+  +usuario_criado(nome)
+  +bem_vindo_novamente(player_obj)
+  +despedida(Player)
+}
+
+class ViewHistoria {
+  -Player
+  -historia_dict
+  +print_historia()
+}
+
+class ViewPergunta {
+  -pergunta_dict
+  +print_pergunta(player_inimigo)
+}
+
+class ViewBatalha {
+  -dict_player
+  -dict_inimigo
+  +print_iniciar_batalha()
+  +ataque_inimigo_erro()
+}
+
+Sistema "1" *-- "1" ServiceUser : gerencia
+Sistema "1" o-- "1" Player : jogador_atual
+Sistema "1" ..> "1" RepoPlayer : cria
+Sistema "1" ..> "1" RepoHistoria : cria
+Sistema "1" ..> "1" ServiceHistoria : instancia
+Sistema "1" ..> "1" ViewMenu : usa
+Sistema "1" ..> "1" ViewHistoria : usa
+Sistema "1" ..> "1" Combate : inicia
+
+Combate "1" *-- "0..*" MotorCombate : cria_turnos
+Combate "1" o-- "1" Player : estado_jogador
+Combate "1" o-- "1" Inimigo : estado_inimigo
+Combate "1" -- "0..*" Itens : usa
+Combate "1" ..> "1" RepoPlayer : instancia
+Combate "1" ..> "1" RepoPerguntas : instancia
+Combate "1" ..> "1" ServiceUser : instancia
+Combate "1" ..> "1" ServicePerguntas : instancia
+Combate "1" ..> "1" ViewBatalha : usa
+
+ServiceUser "1" o-- "1" RepoPlayer : persiste
+ServiceUser "1" ..> "1" Player : cria
+
+ServiceHistoria "1" o-- "1" RepoHistoria : consulta
+ServiceHistoria "1" o-- "1" Player : contexto
+ServiceHistoria "1" ..> "1" Inimigo : cria
+
+ServicePerguntas "1" o-- "1" RepoPerguntas : consulta
+
+MotorCombate "1" ..> "1" Player : instancia
+MotorCombate "1" ..> "1" Inimigo : instancia
+MotorCombate "1" ..> "1" ViewPergunta : usa
+MotorCombate "1" ..> "1" ViewBatalha : usa
+
+ViewMenu "1" ..> "1" Player : exibe
+ViewHistoria "1" o-- "1" Player : narrativa
+ViewBatalha "1" o-- "1" Player : hud
+ViewBatalha "1" o-- "1" Inimigo : hud
+
+Crua ..|> Itens
+Buffer ..|> Itens
+
+@enduml
