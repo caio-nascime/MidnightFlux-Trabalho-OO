@@ -1,4 +1,4 @@
-
+import time
 
 class ViewHistoria:
 
@@ -13,6 +13,8 @@ class ViewHistoria:
 
         print(f"{self.historia_dict["historia"]}\n")
 
-        continuar = input("Pular -> ENTER / Sair -> Q : ")
+        continuar = input("Próximo -> ENTER / Sair -> Q : ")
+        print()
+        print()
 
         return continuar

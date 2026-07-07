@@ -1,4 +1,4 @@
-
+from models.inimigo import Inimigo
 
 class ServiceHistoria:
 
@@ -33,6 +33,15 @@ class ServiceHistoria:
             raise ValueError(" ERRO AO TENTAR ACESSAR O INDEX DA HISTORIA ")
 
 
+
+
+    def carregar_inimigo(self, dict_parte):
+
+        dict_inimigo = dict_parte["inimigo"]
+
+        inimigo = Inimigo(dict_inimigo["nome"],dict_inimigo["vida"], dict_inimigo["dano"], dict_inimigo["inventario"], dict_inimigo["dificuldade"], dict_parte["disciplina"])
+
+        return inimigo
 
 
 

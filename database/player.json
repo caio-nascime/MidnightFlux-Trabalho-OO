@@ -2,6 +2,7 @@
     "nome": "None",
     "vida": 50,
     "ira": 5,
+    "dano": 20,
     "inventario": [],
     "pos_historia": 0
 }

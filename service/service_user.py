@@ -29,7 +29,7 @@ class ServiceUser():
 
         dict_infos_player = self.RepoPlayer.get_infos_player()
 
-        player = Player(dict_infos_player["nome"], dict_infos_player["vida"], dict_infos_player["ira"], dict_infos_player["inventario"], dict_infos_player["pos_historia"])
+        player = Player(dict_infos_player["nome"], dict_infos_player["vida"], dict_infos_player["dano"] , dict_infos_player["ira"], dict_infos_player["inventario"], dict_infos_player["pos_historia"])
 
         return player
     
@@ -49,7 +49,16 @@ class ServiceUser():
         player = self.carregar_player()
 
         return player
-            
+    
+
+
+
+    def retornar_pos_json(self, pos_anterior):
+
+        self.RepoPlayer.atualizar_pos_json(pos_anterior)
+        player = self.carregar_player()
+
+        return player
 
         
 

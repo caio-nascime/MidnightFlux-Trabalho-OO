@@ -1,12 +1,172 @@
 [
 [
-
+  {
+    "Enunciado": "Como crio uma função em Python?",
+    "a": "func soma():",
+    "b": "def soma():",
+    "c": "function soma():",
+    "d": "create soma():",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Como crio uma lista vazia em Python?",
+    "a": "lista = ()",
+    "b": "lista = {}",
+    "c": "lista = []",
+    "d": "lista = <>",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual comando mostra o tamanho de uma lista?",
+    "a": "size(lista)",
+    "b": "len(lista)",
+    "c": "count(lista)",
+    "d": "total(lista)",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Como adiciono um item no final de uma lista?",
+    "a": "lista.add(item)",
+    "b": "lista.insert(item)",
+    "c": "lista.append(item)",
+    "d": "lista.push(item)",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "O que imprime este código? print(2 + 3 * 2)",
+    "a": "10",
+    "b": "8",
+    "c": "12",
+    "d": "7",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Como crio um dicionário vazio em Python?",
+    "a": "dicio = []",
+    "b": "dicio = ()",
+    "c": "dicio = {}",
+    "d": "dicio = <>",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Como acesso o valor da chave 'nome' em um dicionário chamado aluno?",
+    "a": "aluno.nome",
+    "b": "aluno['nome']",
+    "c": "aluno(nome)",
+    "d": "aluno->nome",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual estrutura é usada para repetir um bloco de código um número conhecido de vezes?",
+    "a": "if",
+    "b": "try",
+    "c": "for",
+    "d": "break",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual comando é usado para interromper um laço?",
+    "a": "stop",
+    "b": "end",
+    "c": "break",
+    "d": "exit",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "O que faz a função range(5)?",
+    "a": "Cria uma lista de 1 a 5",
+    "b": "Cria valores de 0 a 4",
+    "c": "Cria valores de 0 a 5",
+    "d": "Cria apenas o número 5",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Como verifico se uma variável x é maior que 10?",
+    "a": "if x = 10:",
+    "b": "if x > 10:",
+    "c": "if x => 10:",
+    "d": "if x <> 10:",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual tipo de dado representa textos em Python?",
+    "a": "int",
+    "b": "float",
+    "c": "str",
+    "d": "bool",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual comando transforma um texto em letras maiúsculas?",
+    "a": "texto.upper()",
+    "b": "texto.big()",
+    "c": "texto.capital()",
+    "d": "texto.high()",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "O que imprime este código? print(type(3.5))",
+    "a": "<class 'int'>",
+    "b": "<class 'str'>",
+    "c": "<class 'float'>",
+    "d": "<class 'bool'>",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Como pego o primeiro elemento de uma lista chamada numeros?",
+    "a": "numeros[0]",
+    "b": "numeros[1]",
+    "c": "numeros[-1]",
+    "d": "numeros.first()",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "Qual é o resultado de len('python')?",
+    "a": "5",
+    "b": "6",
+    "c": "7",
+    "d": "4",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual comando é usado para importar um módulo?",
+    "a": "include math",
+    "b": "using math",
+    "c": "import math",
+    "d": "load math",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual palavra-chave é usada para tratar erros em Python?",
+    "a": "catch",
+    "b": "try",
+    "c": "error",
+    "d": "excepted",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "O que faz o método pop() em uma lista, por padrão?",
+    "a": "Adiciona um item no final",
+    "b": "Remove e retorna o último item",
+    "c": "Ordena a lista",
+    "d": "Copia a lista",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual é a saída de print(bool(0))?",
+    "a": "True",
+    "b": "0",
+    "c": "False",
+    "d": "None",
+    "correta": "c"
+  },
 {"Enunciado" : "Como crio uma função ? ", 
 "a" : "func Ola(pedro) ",
 "b" : "def Ola(pedro) ",
 "c" : "definir Ola(pedro) ",
 "d" : "funcao Ola(pedro)",
 "correta" : "b"},
+
 {"Enunciado" : "Como crio um dict ? ", 
 "a" : "dicio = {} ",
 "b" : "def dict() ",
@@ -15,10 +175,171 @@
 "correta" : "a"}
 
 ]
+
 ,
-[]
 
-
-
+[
+    
+  {
+    "Enunciado": "Qual será o resultado de print(10 // 3)?",
+    "a": "3.33",
+    "b": "3",
+    "c": "4",
+    "d": "2",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual é o resultado de print(5 ** 2)?",
+    "a": "10",
+    "b": "7",
+    "c": "25",
+    "d": "52",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "O que faz o método split() em uma string?",
+    "a": "Junta várias strings",
+    "b": "Remove espaços automaticamente",
+    "c": "Divide a string em partes",
+    "d": "Converte texto em lista de números",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Como posso percorrer uma lista chamada numeros e acessar cada elemento?",
+    "a": "for numero in numeros:",
+    "b": "while numeros:",
+    "c": "loop numeros:",
+    "d": "iterate numeros:",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "Qual será a saída de print(list(range(2, 7)))?",
+    "a": "[2, 3, 4, 5, 6]",
+    "b": "[2, 3, 4, 5, 6, 7]",
+    "c": "[1, 2, 3, 4, 5, 6]",
+    "d": "[2, 7]",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "Qual comando adiciona um item em uma posição específica de uma lista?",
+    "a": "lista.insert(posicao, item)",
+    "b": "lista.append(posicao, item)",
+    "c": "lista.add(posicao, item)",
+    "d": "lista.push(posicao, item)",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "O que o comando continue faz dentro de um laço?",
+    "a": "Encerra o programa",
+    "b": "Volta para o início do laço ignorando o restante da iteração",
+    "c": "Pausa o programa",
+    "d": "Apaga a variável do laço",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual será a saída de print(3 > 2 and 5 < 4)?",
+    "a": "True",
+    "b": "False",
+    "c": "3",
+    "d": "5",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual é a forma correta de criar uma função com parâmetro em Python?",
+    "a": "def soma(a, b):",
+    "b": "func soma(a, b):",
+    "c": "function soma(a, b):",
+    "d": "create soma(a, b):",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "O que faz o método keys() em um dicionário?",
+    "a": "Retorna apenas os valores",
+    "b": "Retorna as chaves do dicionário",
+    "c": "Remove itens do dicionário",
+    "d": "Ordena o dicionário",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual será o resultado de print(bool(''))?",
+    "a": "True",
+    "b": "False",
+    "c": "0",
+    "d": "None",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual método remove um item de um dicionário usando uma chave?",
+    "a": "remove()",
+    "b": "delete()",
+    "c": "pop()",
+    "d": "cut()",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual será a saída de print([1, 2, 3][1])?",
+    "a": "1",
+    "b": "2",
+    "c": "3",
+    "d": "Erro",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual comando é usado para criar um arquivo e escrever nele em Python?",
+    "a": "open('arquivo.txt', 'w')",
+    "b": "file('arquivo.txt', 'create')",
+    "c": "write('arquivo.txt')",
+    "d": "save('arquivo.txt')",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "O que acontece quando uma função não retorna nenhum valor explicitamente?",
+    "a": "Ela retorna 0",
+    "b": "Ela retorna False",
+    "c": "Ela retorna None",
+    "d": "Ela gera erro",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual será o resultado de print(type([]))?",
+    "a": "<class 'dict'>",
+    "b": "<class 'tuple'>",
+    "c": "<class 'list'>",
+    "d": "<class 'set'>",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual operador é usado para verificar se um valor está em uma lista?",
+    "a": "in",
+    "b": "is",
+    "c": "has",
+    "d": "of",
+    "correta": "a"
+  },
+  {
+    "Enunciado": "Qual será a saída de print(7 % 3)?",
+    "a": "1",
+    "b": "2",
+    "c": "3",
+    "d": "0",
+    "correta": "b"
+  },
+  {
+    "Enunciado": "Qual estrutura de dados não permite elementos repetidos?",
+    "a": "list",
+    "b": "tuple",
+    "c": "set",
+    "d": "dict",
+    "correta": "c"
+  },
+  {
+    "Enunciado": "Qual é a forma correta de tratar uma exceção em Python?",
+    "a": "if error:",
+    "b": "try: ... except:",
+    "c": "catch error:",
+    "d": "handle error:",
+    "correta": "b"
+  }
+]
     
 ]
