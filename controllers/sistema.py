@@ -107,7 +107,6 @@ class Sistema():
                     continuar = print_parte.print_historia()
 
 
-
             elif tipo == "combate" :
 
                 print("Estou no combate")

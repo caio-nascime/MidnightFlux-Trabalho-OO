@@ -1,9 +1,15 @@
+import random
+
 from service.service_perguntas import ServicePerguntas
 from service.service_motor_combate import MotorCombate
 from service.service_user import ServiceUser
 
 from repositories.repo_perguntas import RepoPerguntas
 from repositories.repo_player import RepoPlayer
+
+from models.cura import Cura
+from models.buff import Buff
+from models.player import Player
 
 from views.view_batalha import ViewBatalha
 
@@ -44,6 +50,30 @@ class Combate:
         self.lista_perguntas = perguntas
 
         return self.lista_perguntas
+    
+    
+
+
+    def __sortear_item(self):
+
+        num_sorteado = random.randint(0,10)
+
+        if num_sorteado >= 3 and num_sorteado < 7:
+
+            novo_item = Cura("DinDin da Tia", "Restaura 10 pontos de vida", 10)
+
+            return novo_item
+
+        elif num_sorteado >= 7:
+
+            novo_item = Buff("Suco do RU", "Aumenta o dano do próximo ataque", 10)
+
+            return novo_item
+
+        else:
+
+            return None
+
     
 
 
@@ -133,15 +163,37 @@ class Combate:
                 if list_fim[1] == "ganhou":
 
                     print("parabens vc ganhou")
-                    
-                    player = service_user.atualizar_pos_json(dict_historia["proximo"])
+
+                    service_user.atualizar_pos_json(dict_historia["proximo"])
+
+                    item_sorteado = self.__sortear_item()
+
+                    if item_sorteado:
+
+                        self.jogador_copy["inventario"].append(item_sorteado)
+
+                        print(f"Você ganhou: {item_sorteado.nome}!")
+
+                    player = Player(self.jogador_copy["nome"], self.jogador_copy["vida"], self.jogador_copy["dano"], self.jogador_copy["ira"], self.jogador_copy["inventario"], dict_historia["proximo"])
+
+                    player.ganhar_ira()
+
+                    service_user.atualizar_player(player)
+
                     return player
-    
+
                 else :
 
                     print("LOSSEEEERRRR")
                     #Volto para o texto anterior
-                    player = service_user.retornar_pos_json(dict_historia["anterior"])
+                    service_user.retornar_pos_json(dict_historia["anterior"])
+
+                    player = Player(self.jogador_copy["nome"], self.jogador_copy["vida"], self.jogador_copy["dano"], self.jogador_copy["ira"], self.jogador_copy["inventario"], dict_historia["anterior"])
+
+                    player.perder_ira()
+
+                    service_user.atualizar_player(player)
+
                     return player
 
             else :

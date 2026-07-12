@@ -53,8 +53,26 @@ class Player:
 
 
 
-    def receber_dano(self, dano): 
+    def receber_dano(self, dano):
 
         vida = self.vida - dano
 
         return vida
+
+
+
+    def perder_ira(self):
+
+        self.ira = max(self.ira - 0.75, 0)
+
+        return self.ira
+
+
+
+    def ganhar_ira(self):
+
+        if self.ira < 5:
+
+            self.ira = min(self.ira + 0.5, 5)
+
+        return self.ira
