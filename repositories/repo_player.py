@@ -55,6 +55,21 @@ class RepoPlayer():
 
 
 
+    def atualizar_player(self, nome, vida, dano, ira, inventario, pos_historia):
+
+        self.__infos_player["nome"] = nome
+        self.__infos_player["vida"] = vida
+        self.__infos_player["dano"] = dano
+        self.__infos_player["ira"] = ira
+        self.__infos_player["inventario"] = inventario
+        self.__infos_player["pos_historia"] = pos_historia
+
+        with open(self.__path , 'w', encoding= 'utf-8') as arquivo_json:
+            json.dump(self.__infos_player, arquivo_json, indent=4, ensure_ascii=False)
+
+
+
+
 if __name__ == "__main__" :
 
     repo_player = RepoPlayer('database/player.json')

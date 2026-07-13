@@ -104,5 +104,5 @@ class ViewMenu:
     def despedida(self, Player):
 
         print(f"Até logo {Player.nome}! Descansar que o homem não é de ferro !")
-        print(f"Atualmente você está com {Player.vida} de vida e {Player.vida}, se recupere para amnhanhã, não vá para o HH\n\n")
+        print(f"Atualmente você está com {Player.vida} de vida e {Player.ira} de IRA, se recupere para amnhanhã, não vá para o HH\n\n")
 

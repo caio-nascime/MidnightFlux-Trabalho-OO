@@ -2,6 +2,8 @@ import random
 
 from models.player import Player
 from models.inimigo import Inimigo
+from models.buff import Buff
+from models.cura import Cura
 
 from views.view_pergunta import ViewPergunta
 from views.view_batalha import ViewBatalha
@@ -35,6 +37,26 @@ class MotorCombate:
 
     def turno_player(self, combo):
 
+        player  = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
+        inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
+
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+
+        for item in player.inventario :
+
+            if isinstance(item, Buff):
+
+                usar = view_batalha.perguntar_usar_item(item)
+
+                if usar:
+
+                    player = item.usar_item(player)
+
+                    player.inventario.remove(item)
+
+                    view_batalha.mostrar_item_usado(item, player)
+
+
         pergunta_dict = self.sortear_pergunta()
 
         view_pergunta = ViewPergunta(pergunta_dict)
@@ -51,13 +73,8 @@ class MotorCombate:
 
                 print("\nResposta inválida marque uma das 4 alternativas : \n")
 
-        
-        
-        player  = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
-        inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
-        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
-        
+
 
         if resposta == pergunta_dict["correta"]:
             ...
@@ -96,6 +113,29 @@ class MotorCombate:
 
     def turno_inimigo(self, combo):
 
+
+        player = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
+        inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
+
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+
+
+        for item in player.inventario :
+
+            if isinstance(item, Cura):
+
+                usar = view_batalha.perguntar_usar_item(item) #CRIAR UMA VIEW
+
+                if usar :
+
+                    player = item.usar_item(player)
+
+                    player.inventario.remove(item)
+
+                    view_batalha.mostrar_item_usado(item, player)
+
+
+
         pergunta_dict = self.sortear_pergunta()
 
         view_pergunta = ViewPergunta(pergunta_dict)
@@ -112,12 +152,8 @@ class MotorCombate:
 
                 print("\nResposta inválida marque uma das 4 alternativas : \n")
 
-        
-        
-        player = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
-        inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
-        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+        
 
 
         if resposta == pergunta_dict["correta"]:
