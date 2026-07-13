@@ -76,3 +76,11 @@ class Player:
             self.ira = min(self.ira + 0.5, 5)
 
         return self.ira
+
+
+
+    def perder_vida_derrota(self):
+
+        self.vida -= 5
+
+        return self.vida

@@ -40,18 +40,21 @@ class MotorCombate:
         player  = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
         inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
 
         for item in player.inventario :
 
             if isinstance(item, Buff):
 
-                escolha_buff = input("\nDESEJA BUFFAR SEU DANO ? (s = sim / n = nao) : \n") #CRIAR UMA VIEW
+                usar = view_batalha.perguntar_usar_item(item)
 
-                if escolha_buff.lower() == "s":
+                if usar:
 
                     player = item.usar_item(player)
 
                     player.inventario.remove(item)
+
+                    view_batalha.mostrar_item_usado(item, player)
 
 
         pergunta_dict = self.sortear_pergunta()
@@ -71,8 +74,6 @@ class MotorCombate:
                 print("\nResposta inválida marque uma das 4 alternativas : \n")
 
 
-        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
-        
 
 
         if resposta == pergunta_dict["correta"]:
@@ -116,18 +117,22 @@ class MotorCombate:
         player = Player(self.jogador_dict["nome"], self.jogador_dict["vida"],self.jogador_dict["dano"], self.jogador_dict["ira"], self.jogador_dict["inventario"], self.jogador_dict["combo"])
         inimigo = Inimigo(self.inimigo_dict["nome"], self.inimigo_dict["vida"], self.inimigo_dict["dano"], self.inimigo_dict["inventario"], self.inimigo_dict["dificuldade"], self.inimigo_dict["disciplina"])
 
+        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+
 
         for item in player.inventario :
 
             if isinstance(item, Cura):
 
-                escolha_buff = input("\nDESEJA CURAR SUA VIDA ? (s = sim / n = nao) : \n") #CRIAR UMA VIEW
+                usar = view_batalha.perguntar_usar_item(item) #CRIAR UMA VIEW
 
-                if escolha_buff.lower() == "s":
+                if usar :
 
                     player = item.usar_item(player)
 
                     player.inventario.remove(item)
+
+                    view_batalha.mostrar_item_usado(item, player)
 
 
 
@@ -148,7 +153,7 @@ class MotorCombate:
                 print("\nResposta inválida marque uma das 4 alternativas : \n")
 
 
-        view_batalha = ViewBatalha(self.jogador_dict, self.inimigo_dict)
+        
 
 
         if resposta == pergunta_dict["correta"]:

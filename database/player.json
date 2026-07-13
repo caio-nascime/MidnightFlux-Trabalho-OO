@@ -1,8 +1,21 @@
 {
-    "nome": "caio",
-    "vida": 0.0,
-    "ira": 4.25,
+    "nome": "Caio",
+    "vida": 50,
+    "ira": 5,
     "dano": 20,
-    "inventario": [],
-    "pos_historia": 3
+    "inventario": [
+        {
+            "tipo": "Buff",
+            "nome": "Suco do RU",
+            "observacao": "Aumenta o dano do proximo ataque",
+            "valor_buff": 10
+        },
+        {
+            "tipo": "Cura",
+            "nome": "DinDin da Tia",
+            "observacao": "Restaura pontos de vida",
+            "valor_cura": 15
+        }
+    ],
+    "pos_historia": 4
 }

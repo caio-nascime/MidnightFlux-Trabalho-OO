@@ -162,8 +162,6 @@ class Combate:
 
                 if list_fim[1] == "ganhou":
 
-                    print("parabens vc ganhou")
-
                     service_user.atualizar_pos_json(dict_historia["proximo"])
 
                     item_sorteado = self.__sortear_item()
@@ -178,19 +176,29 @@ class Combate:
 
                     player.ganhar_ira()
 
+                    view_batalha_atualizada = ViewBatalha({"nome" : player.nome, "vida" : player.vida, "ira" : player.ira}, self.inimigo_copy)
+
+                    view_batalha_atualizada.vitoria()
+
+
                     service_user.atualizar_player(player)
 
                     return player
 
                 else :
 
-                    print("LOSSEEEERRRR")
                     #Volto para o texto anterior
                     service_user.retornar_pos_json(dict_historia["anterior"])
 
-                    player = Player(self.jogador_copy["nome"], self.jogador_copy["vida"], self.jogador_copy["dano"], self.jogador_copy["ira"], self.jogador_copy["inventario"], dict_historia["anterior"])
+                    player = Player(self.jogador_copy["nome"], self.Player.vida, self.jogador_copy["dano"], self.jogador_copy["ira"], self.jogador_copy["inventario"], dict_historia["anterior"])
+
+                    player.perder_vida_derrota()
 
                     player.perder_ira()
+
+                    view_batalha_atualizada = ViewBatalha({"nome" : player.nome, "vida" : player.vida, "ira" : player.ira}, self.inimigo_copy)
+
+                    view_batalha_atualizada.derrota()
 
                     service_user.atualizar_player(player)
 

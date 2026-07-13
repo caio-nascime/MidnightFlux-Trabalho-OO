@@ -15,12 +15,12 @@
 "proximo" : 3,
 "tipo" : "texto"},
 
-{"historia" : "texto 3",
+{"historia" : "Ela abre a boca e um som distorcido ecoa pelo cenário:\n\nSyntaxError\n\n",
 "posicao" : 3 ,
 "proximo" : 4,
 "tipo" : "texto"},
 
-{ "historia" : "texto 4",
+{ "historia" : "A criatura avança.\nE pela primeira vez…\no combate começa.",
 "posicao" : 4 ,
 "anterior" : 3,
 "proximo" : 5,
@@ -37,9 +37,19 @@
     "falas_erro" : ["Errou", "Pesimo", "Fraco"]} },
 
 
-{"historia" : "texto 5",
+{"historia" : "Acabou?\nSilencio, angustia, você não sabe o que aconteceu\n\n",
 "posicao" : 5 ,
 "proximo" : 6,
+"tipo" : "texto"},
+
+{"historia" : "Fica imóvel por 5 minutos, sem entender o que acabou de acontecer\n\nMas aparentemente Fabrilton, o guardão de APC\n\nEstava DERROTADO\n\n",
+"posicao" : 6 ,
+"proximo" : 7,
+"tipo" : "texto"},
+
+{"historia" : "O primeiro SS foi garantido...\n\nESPERE POR MAIS",
+"posicao" : 7 ,
+"proximo" : 8,
 "tipo" : "texto"}
 
 ]

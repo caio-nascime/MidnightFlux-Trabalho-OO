@@ -9,6 +9,8 @@ from views.view_historia import ViewHistoria
 
 from controllers.combate import Combate
 
+from models.player import Player
+
 
 
 
@@ -68,6 +70,19 @@ class Sistema():
 
 
 
+    def __verificar_fim(self):
+
+        if self.player.ira <= 0 or self.player.vida <= 0:
+
+            return True
+
+        else:
+
+            return False
+
+
+
+
     def __loop_principal(self) :
          
         
@@ -118,6 +133,16 @@ class Sistema():
                 player_pos_turno = combate.turno(parte_historia_dict)
 
                 self.player = player_pos_turno
+
+                if self.__verificar_fim():
+
+                    print("\nSeu personagem não resistiu... FIM DE JOGO.\n")
+
+                    player_reset = Player("None", 50, 20, 5, [], 0)
+
+                    self.service_user.atualizar_player(player_reset)
+
+                    return
 
 
 
